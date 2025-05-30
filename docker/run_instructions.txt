@@ -1,1 +1,0 @@
-sudo docker run --name postgresql-bank-datakvalitet -e POSTGRES_PASSWORD=password123 -e POSTGRES_USER=postgres -p 5432:5432 -d postgres:latest
