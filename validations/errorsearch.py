@@ -1,6 +1,7 @@
 from datetime import datetime
 import random
 import string
+import os
 
 import pandas as pd
 
@@ -14,12 +15,21 @@ class CheckForErrors:
     ['transaction_id','timestamp','amount','currency','sender_account',
     'receiver_account','sender_country','sender_municipality','receiver_country',
     'receiver_municipality','transaction_type','notes']
+
+    This class looks for csv_filename in /data/...
     """
-    def __init__(self):
+    def __init__(self, csv_filename):
         """
         1. Adding a unique identifier for the run
         """
-        self.dataframe = pd.read_csv("../data/transactions_original.csv")
+        # attributes definitions
+        self.csv_filename = csv_filename
+
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        csv_path = os.path.abspath(os.path.join(current_dir, '..', 'data', csv_filename))
+
+        self.dataframe = pd.read_csv(csv_path)
+        # self.dataframe = pd.read_csv("../data/transactions_original.csv")
         
         # self.dataframe = dataframe
         # self.run_all()
@@ -56,5 +66,7 @@ class CheckForErrors:
     #         self.dataframe["amount"].astype(float)
     #         self.dataframe["amount"] = self.dataframe["amount"].astype(str)
 
-new_run = CheckForErrors()
+
+new_run = CheckForErrors("transactions_original.csv")
 new_run.input_unique_identifier()
+
