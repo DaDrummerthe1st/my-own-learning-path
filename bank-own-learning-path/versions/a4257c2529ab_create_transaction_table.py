@@ -20,9 +20,22 @@ depends_on: Union[str, Sequence[str], None] = None
 
 def upgrade() -> None:
     """Upgrade schema."""
-    pass
+    op.create_table("transactions",
+        sa.Column("transaction_id", sa.String, primary_key=True, nullable=False),
+        sa.Column("timestamp", sa.DateTime, nullable=False),
+        sa.Column("amount", sa.Float, nullable=False),
+        sa.Column("currency", sa.String(3), nullable=False),
+        sa.Column("sender_account", sa.String(34), nullable=False),
+        sa.Column("receiver_account", sa.String(34), nullable=False),
+        sa.Column("sender_country", sa.String(25), nullable=False),
+        sa.Column("sender_municipality", sa.String(25), nullable=False),
+        sa.Column("receiver_country", sa.String(25), nullable=False),
+        sa.Column("receiver_country", sa.String(25), nullable=False),
+        sa.Column("transaction_type", sa.String(15), nullable=False),
+        sa.Column("notes", sa.String(255), nullable=True)
+    )
 
 
 def downgrade() -> None:
     """Downgrade schema."""
-    pass
+    op.drop_table("transactions")
