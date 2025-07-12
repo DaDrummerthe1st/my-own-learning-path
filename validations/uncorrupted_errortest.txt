@@ -1,0 +1,75 @@
+import pandas as pd
+
+file = "../data/transactions_original.csv"
+
+df_transactions = pd.read_csv(file)
+# display(df_transactions.head())
+# print(df_transactions.dtypes)
+
+# print(df_transactions.columns)
+
+def check_this_out(name, cell, type):
+    error_messages = []
+    match type:
+        case "st": # string-test
+            try:
+                str(cell)
+            except Exception as e:
+                error_messages.append(f"In {name}, exception: {e}")
+        case "dt": # datetime-test
+            try:
+                pd.to_datetime(cell)
+            except Exception as e:
+                error_messages.append(f"In {name}, exception: {e}")
+        case "fl": # float-test
+            try:
+                float(cell)
+            except Exception as e:
+                error_messages.append(f"In {name}, exception: {e}")
+        case _:
+            return
+    if not error_messages:
+        return
+    else:
+        # print(f"error_messages should not be empty inside here: {error_messages}")
+        return error_messages
+
+# pytests:
+# print(check_this_out("amount", "1. 0", "fl")) # ["In amount, exception: could not convert string to float: '1. 0'"]
+# print(check_this_out("amount", "1.0", "fl")) # None
+# print(type(check_this_out("amount", "1. 0", "fl"))) # <class 'list'>
+# print(type(check_this_out("amount", "1.0", "fl"))) # <class 'NoneType'>
+
+def error_check(df_frame):
+    # starting two new dfs from 
+    df_incorrect = df_frame[df_frame.isna().any(axis=1)]
+    df_correct = df_frame[~df_frame.isna().any(axis=1)]
+    display(df_correct.isna().any(axis=1))
+    # print(len(df_incorrect))
+    # print((len(df_remaining)))
+    # display(df_incorrect.head())
+    # display(df_remaining.head())
+
+    # for _, row in df_frame.iterrows():
+    #     row_errors = []
+    #     for index_n, index_name in enumerate(row.index):
+    #         # print(row.index[index_n])
+    #         match row.index[index_n]:
+    #             case "timestamp":
+    #                 if check_this_out(row.index[index_n], row[index_name], "dt"):
+    #                     row_errors.append(check_this_out(row.index[index_n], row[index_name], "dt"))
+    #             case "amount":
+    #                 if check_this_out(row.index[index_n], row[index_name], "fl"):
+    #                     row_errors.append(check_this_out(row.index[index_n], row[index_name], "fl"))
+    #             case "transaction_id" | "currency" | "sender_account" | "receiver_account" | "sender_country" | "sender_municipality" | "receiver_country" | "receiver_municipality" | "transaction_type" | "notes":
+    #                 if check_this_out(row.index[index_n], row[index_name], "st"):
+    #                     row_errors.append(check_this_out(row.index[index_n], row[index_name], "st"))
+    #             # case _:
+    #             #     print("something went wrong")
+    #     if row_errors:
+    #         print(row_errors)
+    #     # else:
+    #     #     print("no errors")
+
+
+error_check(df_transactions)

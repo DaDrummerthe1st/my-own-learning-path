@@ -23,3 +23,9 @@ Detta är händelseflödet för att klara uppgiften
 * key / value - pair
 * Spara en csv-fil med broken data
 ### 4. Förbättra cleaningprocessen
+
+# Katalogstruktur
+### Validations
+Ämnat för ETL-flödet.
+Sorterar ut felaktiga rader, baserat på de körningsfel som uppstått när Alembic försöker skriva från csv:n
+<br>Huvudfil just nu: [just_make_it_easy.py](validations/justmakeiteasyplease.py)
