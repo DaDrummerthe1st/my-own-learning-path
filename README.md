@@ -33,6 +33,7 @@ sudo docker ps -a # lists ALL containers
 sudo docker restart [containerhash]
 ##### connect to db:
 sudo docker exec -it [docker container name] psql -U [username] -d [databasename]
+sudo docker exec -it db2a8a002e0436297cfe9e849efdfc685d6d3eee38fd019810f3d66f73a6a59c -U postgres -
 ### Logged into postgresql:
 \dt # check tables
 select * from employees; # dont forget the ; sign
