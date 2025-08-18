@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models_old import Base
+from alembicstuff.models_old import Base
 
 DATABASE_URL = "postgresql+psycopg2://postgres:root@localhost:5432/bank1"
 engine = create_engine(DATABASE_URL)
