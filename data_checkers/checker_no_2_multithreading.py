@@ -2,17 +2,17 @@ import time
 
 start_time = time.time()
 
-import logging
-import psycopg2
-from psycopg2 import sql
+# import logging
+# import psycopg2
+# from psycopg2 import sql
 
 import pandas as pd
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+# logging.basicConfig(level=logging.INFO)
+# logger = logging.getLogger(__name__)
 
 class TransactionValidator:
     def __init__(self, df):
@@ -129,7 +129,7 @@ try:
 except (FileExistsError):
     print(f"{run_builder_csv_filename} already exist, but shouldn't")
 
-(f"total elapsed time: {time.time() - start_time} seconds")
+print(f"total elapsed time: {time.time() - start_time} seconds")
 
 # if __name__ == '__main__':
 #     main()
