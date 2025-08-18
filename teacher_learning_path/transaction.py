@@ -1,4 +1,4 @@
-from db import Db
+from postgresql.db import Db
 
 class Transaction:
 

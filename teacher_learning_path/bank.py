@@ -4,7 +4,7 @@
 # can transfer (to/from other banks)
 
 from account import Account
-from db import Db
+from postgresql.db import Db
 
 class Bank:
     customers = []
