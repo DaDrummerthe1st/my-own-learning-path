@@ -22,10 +22,10 @@ class Checks:
             return error_message
     
 
-class rows:
+class Rows:
     def __init__(self, csv_filename):
         self.error_messages = []
-        checker = Checks
+        self.checker = Checks
 
         # argument to attributes definitions
         self.csv_filename = csv_filename
@@ -39,14 +39,14 @@ class rows:
         # object specific attributes definitions
         self.error_dict = {} # collection of all errors
     
-    def check_transaction_id(cell):
+    def check_transaction_id(self, cell):
         """I would want this to be a class instead. ParentClass: stdsearches. Others inherit with specific attributes and settings"""
 
-        error_messages.append(checker.none())
+        self.error_messages.append(self.checker.none())
         
         return error_messages
 
-
+############ Only refactored up until here!
         try:
             str(cell)
         except Exception as e:
