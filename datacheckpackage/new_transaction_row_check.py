@@ -23,39 +23,24 @@ class Checks:
     
 
 class Rows:
-    def __init__(self, csv_filename):
+    def __init__(self, csv_datafrane):
+        self.csv_dataframe = csv_datafrane
         self.error_messages = []
-        self.checker = Checks
 
-        # argument to attributes definitions
-        self.csv_filename = csv_filename
-
-        # create the dataframe
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        csv_path = os.path.abspath(os.path.join(current_dir, '..', 'data', csv_filename))
-        # TODO: on_ba_lines=... when reading the csv if any errors occur, perhaps a try/except?
-        self.dataframe = pd.read_csv(csv_path)
-
-        # object specific attributes definitions
-        self.error_dict = {} # collection of all errors
+        self.check_transaction_id()
     
     def check_transaction_id(self, cell):
         """I would want this to be a class instead. ParentClass: stdsearches. Others inherit with specific attributes and settings"""
 
         self.error_messages.append(self.checker.none())
         
-        return error_messages
-
-############ Only refactored up until here!
         try:
             str(cell)
         except Exception as e:
-            error_messages.append(f"In amount, exception: {e}")
+            self.error_messages.append(f"In amount, exception: {e}")
 
-        if error_messages == []:
-            return
-        else:
-            return error_messages
+        if self.error_messages != []:
+            return self.error_messages
 
 
     def check_timestamp(cell):
@@ -75,6 +60,7 @@ class Rows:
             return
         else:
             return error_messages
+############ Only refactored up until here!
 
     def check_amount(cell):
         error_messages = []
@@ -254,3 +240,7 @@ class Rows:
             return
         else:
             return error_messages
+        
+
+row = Rows
+
