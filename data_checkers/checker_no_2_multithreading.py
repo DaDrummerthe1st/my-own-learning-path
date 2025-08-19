@@ -114,7 +114,7 @@ print(error_builder.head())
 print("\nRun Builder:")
 print(run_builder.head())
 
-# create new csv-files
+# create new csv-files for validation and rollback
 path_to_runs = "../data/runs/"
 error_builder_csv_filename = f"{path_to_runs}error_builder{time.time()}.csv"
 run_builder_csv_filename = f"{path_to_runs}run_builder{time.time()}.csv"
