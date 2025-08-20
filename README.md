@@ -1,3 +1,5 @@
+För kännedom är inget i detta repo färdigt, allt är olika nedslag i tekniker, i förekommande fall - enligt hur instruktionerna från Linus Lindroth.
+
 # Bank-app-handling transactions
 
 Detta är händelseflödet för att klara uppgiften
