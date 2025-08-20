@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from postgresql.db import Db
+=======
+from db import Db
+>>>>>>> database_connection_second_try
 
 class Transaction:
 

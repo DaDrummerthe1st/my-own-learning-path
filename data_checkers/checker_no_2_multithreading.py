@@ -114,7 +114,11 @@ print(error_builder.head())
 print("\nRun Builder:")
 print(run_builder.head())
 
+<<<<<<< HEAD
 # create new csv-files for validation and rollback
+=======
+# create new csv-files
+>>>>>>> database_connection_second_try
 path_to_runs = "../data/runs/"
 error_builder_csv_filename = f"{path_to_runs}error_builder{time.time()}.csv"
 run_builder_csv_filename = f"{path_to_runs}run_builder{time.time()}.csv"

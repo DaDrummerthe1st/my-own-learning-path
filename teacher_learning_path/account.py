@@ -5,7 +5,11 @@
 # has currency
 import random
 
+<<<<<<< HEAD
 from postgresql.db import Db
+=======
+from db import Db
+>>>>>>> database_connection_second_try
 from transaction import Transaction
 
 

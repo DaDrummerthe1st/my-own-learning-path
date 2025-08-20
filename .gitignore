@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 data/runs/
+=======
+data/runs/
+postgresql/credentials.txt
+>>>>>>> database_connection_second_try

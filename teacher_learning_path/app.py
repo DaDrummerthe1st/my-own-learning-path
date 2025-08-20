@@ -2,7 +2,11 @@
 from account import Account
 from bank import Bank
 from customer import Customer
+<<<<<<< HEAD
 from postgresql.db import Db
+=======
+from db import Db
+>>>>>>> database_connection_second_try
 
 # this is just usage examples of how to use the various methods in the bank.
 def main():
